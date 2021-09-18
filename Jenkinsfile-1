@@ -24,10 +24,11 @@ pipeline {
             }
             steps {
                 checkout scm
-                sh 'pip install -r requirements.txt'
+                sh 'pip install pymongo'
                 sh 'pip install -e .'
                 sh 'echo "MONGO_HOST=127.0.0.1" >> web/.env'
-                sh 'coverage run web/test/main.py'
+                sh 'coverage run InsertarLista.py'
+                sh 'coverage run MostrarLista.py'
             }
             post {
                 always {
